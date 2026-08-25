@@ -18,9 +18,9 @@ document.addEventListener('DOMContentLoaded',()=>{
    form.reset();
   }catch(err){
    console.error('Error formulario InnovaTech:',err);
-   if(err.message==='MISSING_ENVIRONMENT_VARIABLES') status.textContent='La configuración del correo no está completa en Vercel.';
+   if(err.message==='MISSING_SMTP_ENV') status.textContent='La configuración del correo no está completa en Vercel.';
    else if(err.message==='INVALID_FORM_DATA') status.textContent='Revisa los campos obligatorios del formulario.';
-   else if(err.message==='EMAIL_SEND_FAILED') status.textContent='El servidor recibió el formulario, pero Gmail no pudo enviar el correo.';
+   else if(err.message==='SMTP_SEND_FAILED') status.textContent='El servidor recibió el formulario, pero no se pudo enviar el correo.';
    else status.textContent='No se pudo enviar la solicitud. También puedes escribirnos por WhatsApp.';
    status.className='status error';
   }finally{
