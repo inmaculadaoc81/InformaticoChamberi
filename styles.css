@@ -12,7 +12,7 @@
 .service-box .ico svg{width:27px;height:27px;fill:currentColor;display:block}
 .field input[type="date"],.field input[type="time"]{color-scheme:dark}
 .field input[type="date"]::-webkit-calendar-picker-indicator,
-.field input[type="time"]::-webkit-calendar-picker-indicator{filter:invert(1) brightness(2);opacity:1;cursor:pointer}
+.field input[type="time"]::-webkit-calendar-picker-indicator{background:#fff;border-radius:6px;padding:5px;filter:none;opacity:1;cursor:pointer}
 .wa-icon{display:block!important;fill:currentColor;color:#fff!important;flex:0 0 auto}
 .wa-main{gap:0}.wa-main .wa-icon{width:21px!important;height:21px!important;margin-right:9px!important}
 .float-wa{border:2px solid rgba(255,255,255,.75);box-shadow:0 10px 28px rgba(0,0,0,.35)}
