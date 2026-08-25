@@ -6,7 +6,7 @@ module.exports=async(req,res)=>{
     const keys=["SMTP_HOST","SMTP_PORT","SMTP_SECURE","SMTP_USER","SMTP_PASS","CONTACT_EMAIL"];
     return res.status(200).json({
       ok:true,
-      service:"InnovaTech cita API",
+      service:"InnovaTech contacto API",
       environment:Object.fromEntries(keys.map(k=>[k,Boolean(process.env[k])]))
     });
   }
@@ -33,11 +33,9 @@ module.exports=async(req,res)=>{
     const phone=clean(d.phone,40);
     const email=clean(d.email,140);
     const service=clean(d.service,160);
-    const date=clean(d.date,30);
-    const time=clean(d.time,30);
     const message=clean(d.message,2500);
 
-    if(!company||!contact||!phone||!email||!service||!date||!time||!message){
+    if(!company||!contact||!phone||!email||!service||!message){
       return res.status(400).json({ok:false,code:"INVALID_FORM_DATA"});
     }
 
@@ -60,20 +58,18 @@ module.exports=async(req,res)=>{
       from:`"InnovaTech" <${process.env.SMTP_USER}>`,
       to:process.env.CONTACT_EMAIL||process.env.SMTP_USER,
       replyTo:email,
-      subject:`Nueva solicitud de cita InnovaTech - ${company}`,
-      text:`Nueva solicitud de cita InnovaTech
+      subject:`Nueva consulta InnovaTech - ${company}`,
+      text:`Nueva consulta InnovaTech
 
 Empresa: ${company}
 Persona de contacto: ${contact}
 Teléfono: ${phone}
 Email: ${email}
 Servicio: ${service}
-Fecha preferida: ${date}
-Hora preferida: ${time}
 
 Necesidad:
 ${message}`,
-      html:`<h2>Nueva solicitud de cita InnovaTech</h2><p><b>Empresa:</b> ${company}</p><p><b>Persona de contacto:</b> ${contact}</p><p><b>Teléfono:</b> ${phone}</p><p><b>Email:</b> ${email}</p><p><b>Servicio:</b> ${service}</p><p><b>Fecha preferida:</b> ${date}</p><p><b>Hora preferida:</b> ${time}</p><p><b>Necesidad:</b><br>${message.replace(/\n/g,"<br>")}</p>`
+      html:`<h2>Nueva consulta InnovaTech</h2><p><b>Empresa:</b> ${company}</p><p><b>Persona de contacto:</b> ${contact}</p><p><b>Teléfono:</b> ${phone}</p><p><b>Email:</b> ${email}</p><p><b>Servicio:</b> ${service}</p><p><b>Necesidad:</b><br>${message.replace(/\n/g,"<br>")}</p>`
     });
 
     return res.status(200).json({ok:true});
