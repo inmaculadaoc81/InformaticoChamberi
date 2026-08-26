@@ -5,15 +5,15 @@ index.html, contacto.html, politica-privacidad.html y 8 páginas de
 servicio en /servicios/, todas comparten cabecera, chatbot n8n y footer.
 
 Dominio:
-https://serviciotecnicoinformaticomadrid.es/
-(coherente en robots.txt y sitemap.xml)
+https://informaticomadrid.com.es/
+(CONFIRMADO por el cliente como el dominio real de InnovaTech.
+Corregido en canonical, og:url, JSON-LD, robots.txt y sitemap.xml —
+antes apuntaban a serviciotecnicoinformaticomadrid.es.)
 
-AVISO: el repositorio ToshibaWEB2 (y originalmente Electro360, ya
-corregido) usa como dominio "https://informaticoschamberi.com.es/", que
-coincide con el nombre de ESTE repositorio (InformaticoChamberi). Es
-probable que ese dominio estuviera pensado para este sitio y se copiara
-por error en la plantilla de ToshibaWEB2. No se ha tocado nada aquí ni
-en ToshibaWEB2 hasta que lo confirmes.
+AVISO (actualizado): el cliente confirma que "informaticoschamberi.com.es"
+NO es el dominio de este sitio ni de ToshibaWEB2. Sigue sin aclararse a
+qué corresponde ese dominio o si ToshibaWEB2 tiene un dominio propio
+distinto — revisar ese repositorio por separado cuando se procese.
 
 REVISIÓN (fixes aplicados):
 - Menú móvil: no existía botón de menú en móvil (.links se ocultaba a
@@ -81,7 +81,7 @@ REVISIÓN ADICIONAL (esta pasada):
   Aquí sí respondemos." (el H1 anterior, de un rediseño posterior a
   este README, tenía 16 palabras). Tamaño del H1 aumentado:
   clamp(38-60px) → clamp(46-74px) en escritorio, 41px → 48px en móvil.
-- Sigue pendiente sin resolver: la colisión de dominio con ToshibaWEB2
-  (informaticoschamberi.com.es) descrita arriba, y la replicación de
-  schema.org/canonical/og:* al resto de páginas — ninguno de los dos
-  se ha tocado en esta pasada.
+- Dominio corregido a informaticomadrid.com.es (ver arriba).
+- Sigue pendiente sin resolver: la replicación de schema.org/
+  canonical/og:* al resto de páginas (solo están en index.html) y el
+  dominio real de ToshibaWEB2, que queda por confirmar por separado.
