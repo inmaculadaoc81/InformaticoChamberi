@@ -63,3 +63,25 @@ GOOGLE_REFRESH_TOKEN, GOOGLE_EMAIL) ya no se usan y pueden eliminarse de
 Vercel. package.json actualizado: se quitó la dependencia "googleapis" y
 se añadió "nodemailer"; node engine ajustado a 22.x para igualar al
 resto de la familia.
+
+Google Analytics:
+G-CFBRECXDXX — no existía. Añadido en las 11 páginas HTML del sitio
+(index, contacto, política de privacidad y las 8 páginas de
+/servicios/).
+
+REVISIÓN ADICIONAL (esta pasada):
+- Sitio confirmado como legítimamente multipágina (sin eliminaciones
+  de /servicios/ en el historial): NO se ha añadido middleware.mjs, no
+  aplica.
+- Sin .navcall: este sitio no muestra un botón de teléfono en el menú
+  (no tenía antes, no se ha añadido); no aplica el fix de la píldora.
+- H1 de portada reescrito, corto, directo y totalmente afirmativo
+  (sin interrogación ni condicionales, mismo esquema visual con <em>
+  que ya usaba la plantilla): "Un ordenador roto detiene tu empresa.
+  Aquí sí respondemos." (el H1 anterior, de un rediseño posterior a
+  este README, tenía 16 palabras). Tamaño del H1 aumentado:
+  clamp(38-60px) → clamp(46-74px) en escritorio, 41px → 48px en móvil.
+- Sigue pendiente sin resolver: la colisión de dominio con ToshibaWEB2
+  (informaticoschamberi.com.es) descrita arriba, y la replicación de
+  schema.org/canonical/og:* al resto de páginas — ninguno de los dos
+  se ha tocado en esta pasada.
