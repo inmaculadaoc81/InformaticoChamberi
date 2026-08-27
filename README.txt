@@ -82,6 +82,26 @@ REVISIÓN ADICIONAL (esta pasada):
   este README, tenía 16 palabras). Tamaño del H1 aumentado:
   clamp(38-60px) → clamp(46-74px) en escritorio, 41px → 48px en móvil.
 - Dominio corregido a informaticomadrid.com.es (ver arriba).
-- Sigue pendiente sin resolver: la replicación de schema.org/
-  canonical/og:* al resto de páginas (solo están en index.html) y el
-  dominio real de ToshibaWEB2, que queda por confirmar por separado.
+- Dominio real de ToshibaWEB2 ya confirmado por separado (hpexpert.es);
+  no tiene relación con este repositorio.
+
+REVISIÓN ADICIONAL (esta pasada — completa la tarea pendiente):
+- Canonical/og:*/robots y schema.org replicados en las 10 páginas que
+  no los tenían (contacto.html, politica-privacidad.html y las 8
+  páginas de /servicios/) — antes solo existían en index.html.
+  - contacto.html y politica-privacidad.html: mismo LocalBusiness que
+    index.html, con su propia URL canonical.
+  - Cada página de /servicios/: schema.org tipo Service con el
+    provider (InnovaTech) y su propia URL canonical.
+  - BUG propio, detectado y corregido en la misma pasada: el script de
+    inserción generó inicialmente las URLs de canonical/og:url con
+    backslash en vez de barra normal en las 8 páginas de servicios
+    (".../servicios\nombre.html" en vez de ".../servicios/nombre",
+    fallo de compatibilidad de rutas de Windows/Python); corregido
+    antes de hacer commit.
+  - Las URLs de canonical/og:url se generaron sin extensión .html
+    (ej. ".../contacto" en vez de ".../contacto.html") para coincidir
+    con vercel.json (cleanUrls:true) y con las URLs ya usadas en
+    sitemap.xml.
+- H1, GA, cookies, schema de index.html, menú móvil y borde del chat
+  ya estaban correctos; no se ha tocado nada de eso.
