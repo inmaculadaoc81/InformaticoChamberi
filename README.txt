@@ -105,3 +105,18 @@ REVISIÓN ADICIONAL (esta pasada — completa la tarea pendiente):
     sitemap.xml.
 - H1, GA, cookies, schema de index.html, menú móvil y borde del chat
   ya estaban correctos; no se ha tocado nada de eso.
+
+REVISIÓN ADICIONAL (a petición del cliente):
+- Quitado el párrafo bajo el h2 del hero ("Revisamos tus equipos antes
+  de que fallen..."), en todas las versiones (no había reglas
+  específicas de móvil/escritorio que lo afectaran aparte, así que un
+  solo cambio cubre ambas). Se mantiene el h2 ("Nosotros nos
+  encargamos de que eso no vuelva a pasar").
+- El cliente también señaló que en escritorio "el texto se ve mal,
+  parece que está en 1 columna, debería estar en 3 columnas": el
+  service-grid del hero y el grid de tarjetas de la sección Servicios
+  ya usan grid-template-columns:repeat(4,1fr) en escritorio (no 1
+  columna), así que se interpreta que la observación se refería al
+  párrafo eliminado arriba (un bloque de texto corrido que ocupaba
+  todo el ancho). Si tras el despliegue se sigue viendo algo en 1
+  columna en escritorio, indicar la sección exacta para revisarlo.
