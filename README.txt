@@ -120,3 +120,28 @@ REVISIÓN ADICIONAL (a petición del cliente):
   párrafo eliminado arriba (un bloque de texto corrido que ocupaba
   todo el ancho). Si tras el despliegue se sigue viendo algo en 1
   columna en escritorio, indicar la sección exacta para revisarlo.
+
+REVISIÓN ADICIONAL (a petición del cliente):
+- BUG REAL — no existía ningún botón de llamada en todo el sitio,
+  solo WhatsApp. Añadido el teléfono compartido de la familia,
+  +34 914 46 85 03: botón "Atención Telefónica..." junto al de
+  WhatsApp en el hero de index.html, y botón "Llamar | +34 914 46 85
+  03" junto al de WhatsApp en la sección "Atención a empresas" de
+  contacto.html.
+- BUG REAL — schema.org usaba el número de WhatsApp
+  (+34649970128) en el campo "telephone" de las 11 páginas del sitio
+  (index, contacto, política de privacidad y las 8 de /servicios/),
+  en vez de un teléfono real. Corregido a +34 914 46 85 03 en las 11
+  páginas mediante un script, verificado antes/después con grep.
+- BUG REAL — el formulario (presente de forma idéntica en index.html
+  Y en contacto.html) tenía la misma casilla de política de
+  privacidad sin ningún enlace en ambas páginas. Añadido el enlace
+  estándar de la familia a https://kelatos.com/privacy-policy/,
+  resaltado en azul, en las dos.
+- Añadido "Sábados, domingos y días festivos estamos cerrados" debajo
+  del horario de atención, en index.html y contacto.html (el mismo
+  bloque de horario aparece duplicado en ambas páginas).
+- No se ha añadido franja de aviso de servicio técnico independiente:
+  no aplica a este negocio (mantenimiento informático para empresas,
+  sin el enfoque de reparación de equipos de la familia de marcas de
+  electrodomésticos/informática de consumo).
