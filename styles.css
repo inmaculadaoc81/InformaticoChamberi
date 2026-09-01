@@ -22,7 +22,7 @@
 .field input[type="date"]::-webkit-calendar-picker-indicator,
 .field input[type="time"]::-webkit-calendar-picker-indicator{background:#fff;border-radius:6px;padding:5px;filter:none;opacity:1;cursor:pointer}
 .wa-icon{display:block!important;fill:currentColor;color:#fff!important;flex:0 0 auto}
-.wa-main{gap:0}.wa-main .wa-icon{width:21px!important;height:21px!important;margin-right:9px!important}
+.wa-main{gap:0}.wa-main,.phone-main{transition:filter .15s ease}.wa-main:hover,.phone-main:hover{filter:brightness(.88)}.wa-main .wa-icon{width:21px!important;height:21px!important;margin-right:9px!important}
 .float-wa{border:2px solid rgba(255,255,255,.75);box-shadow:0 10px 28px rgba(0,0,0,.35)}
 .float-wa .wa-icon{width:31px!important;height:31px!important;margin:0!important;color:#fff!important}
 .status{grid-column:1/-1;padding-top:3px;font-weight:800}.status.success{color:#86ffab}.status.error{color:#ffb1b1}.status.sending{color:#dbe8ff}.submit:disabled{opacity:.7;cursor:wait}

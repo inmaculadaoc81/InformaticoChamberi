@@ -145,3 +145,27 @@ REVISIÓN ADICIONAL (a petición del cliente):
   no aplica a este negocio (mantenimiento informático para empresas,
   sin el enfoque de reparación de equipos de la familia de marcas de
   electrodomésticos/informática de consumo).
+
+REVISIÓN ADICIONAL (checklist unificado de la familia, 11 páginas — a petición del cliente, repo 38/48):
+- BUG REAL — enlace de Cal.com desactualizado (solo existe en
+  index.html). Actualizado a
+  https://cal.com/kelatos/30min?embed=true&theme=dark&attendeePhoneNumber=%2B34&overlayCalendar=true
+  (se mantiene theme=dark, deliberado en este repo, a diferencia del
+  theme=light estándar de la familia).
+- Verificado: el correo soporte@kelatos.com no aparece visible.
+- BUG REAL — el mensaje prellenado de WhatsApp decía "¡Hola Kelatos!"
+  en las 11 páginas (botón del hero y flotante). Corregido a "¡Hola
+  InnovaTech!" en las 21 apariciones encontradas.
+- BUG REAL — el menú móvil (#mobileMenu, estilo atributo hidden) no
+  tenía ningún listener que lo cerrara al pulsar un enlace, en
+  ninguna de las 11 páginas. Añadido el script estándar de la familia
+  a todas.
+- Verificado: sin iconos ni imágenes con proporciones fijas
+  incorrectas.
+- Verificado: el H1 en móvil ya está en 48px (regla ".hero h1").
+- BUG REAL — botones del hero (.wa-main/.phone-main) ya tenían
+  border-radius:99px pero sin ningún estado hover. Añadido
+  filter:brightness(.88) en ambos (colores sólidos) al pasar el
+  ratón.
+- Verificado: este repo no usa el patrón de franja de insignias bajo
+  el H1 (familia Dyson); no aplica la reubicación.
