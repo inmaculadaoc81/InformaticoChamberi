@@ -169,3 +169,43 @@ REVISIÓN ADICIONAL (checklist unificado de la familia, 11 páginas — a petici
   ratón.
 - Verificado: este repo no usa el patrón de franja de insignias bajo
   el H1 (familia Dyson); no aplica la reubicación.
+
+CONVERSIÓN A ONE-PAGE (a petición del cliente):
+Este repositorio era multipágina: servicios/*.html (8 páginas),
+contacto.html y politica-privacidad.html (11 páginas en total).
+Convertido a una sola página (index.html), siguiendo el mismo patrón
+ya usado en el resto de la familia (DellTech, XiaomiTech,
+TaurusMyCook, etc.):
+- Eliminadas las 10 páginas: servicios/ (8 archivos), contacto.html,
+  politica-privacidad.html. No se ha migrado ni resumido su contenido
+  dentro de index.html — el home ya tenía sus propias secciones
+  genéricas (hero con 8 tarjetas de servicio, sección "Servicios
+  informáticos para empresas" con las 8 tarjetas completas y
+  descripción, formulario de contacto, Cal.com, ubicación), así que
+  no se ha perdido la presencia de cada servicio, solo la página
+  individual dedicada a cada uno.
+- Menú (escritorio y móvil): el desplegable "Servicios" con 8 enlaces
+  a páginas individuales se sustituyó por un único enlace "Servicios"
+  → /#servicios (la sección que ya lista los 8 servicios). El enlace
+  "Contacto" (antes /contacto.html) ahora apunta a /#contacto-form
+  (el formulario ya presente en el home).
+- Las 8 tarjetas del hero y los 8 enlaces "Ver servicio →" de la
+  sección "Servicios" (antes apuntaban a /servicios/*.html) ahora
+  apuntan a /#servicios, ya que no existe una página individual a la
+  que llevar.
+- politica-privacidad.html era una página huérfana: no estaba
+  enlazada desde ningún sitio de index.html (el checkbox de política
+  de privacidad del formulario ya usaba correctamente el enlace
+  externo estándar de la familia, https://kelatos.com/privacy-policy/).
+  Solo aparecía en el sitemap.xml. Eliminada junto con el resto.
+- Añadido middleware.mjs (mismo patrón exacto que DellTech/XiaomiTech/
+  etc.): cualquier URL que no sea "/" redirige (301) a la home, para
+  que los enlaces indexados o backlinks a las páginas antiguas no den
+  404. Excluye /api/* y cualquier ruta con extensión de archivo.
+  Añadida la dependencia "@vercel/functions": "^2.0.3" en package.json.
+- sitemap.xml reducido a un único <url>: https://informaticomadrid.com.es/.
+  robots.txt sin cambios (ya solo referenciaba el sitemap por nombre
+  de archivo, no listaba URLs).
+- Las reglas CSS .drop/.menu (dropdown del menú de escritorio) se
+  dejan intactas en styles.css, sin uso, según práctica habitual de
+  la familia al eliminar HTML que las usaba.
