@@ -209,3 +209,15 @@ TaurusMyCook, etc.):
 - Las reglas CSS .drop/.menu (dropdown del menú de escritorio) se
   dejan intactas en styles.css, sin uso, según práctica habitual de
   la familia al eliminar HTML que las usaba.
+
+CORRECCIÓN DE DOMINIO (confirmado por el cliente en vivo):
+- BUG REAL — el dominio real es serviciotecnicoinformaticomadrid.com.es
+  (confirmado por el cliente y verificado en vivo: esa URL carga
+  correctamente la home de InnovaTech). El dominio que se había usado
+  hasta ahora, informaticomadrid.com.es, resultó ser un sitio ajeno,
+  sin relación con este negocio ("Informático Madrid | Montaje
+  Hardware Gaming PC").
+- Corregido a serviciotecnicoinformaticomadrid.com.es en canonical,
+  og:url, JSON-LD (campo "url"), sitemap.xml y robots.txt. El
+  middleware.mjs no necesitaba cambios: usa el origin de la propia
+  petición, no un dominio fijo.
