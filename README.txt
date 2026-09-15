@@ -1,223 +1,411 @@
-INNOVATECH — MANTENIMIENTO INFORMÁTICO PARA EMPRESAS (MADRID)
+ONE PAGE - SERVICIOS IT EMPRESAS
 
-Sitio multipágina (no es la plantilla "one-page" del resto de marcas):
-index.html, contacto.html, politica-privacidad.html y 8 páginas de
-servicio en /servicios/, todas comparten cabecera, chatbot n8n y footer.
+Marca: se deja como texto editable "Nombre de empresa".
+Isotipo: assets/isotipo.svg (terminal + nodos, azul/cian/índigo).
+Dominio: https://serviciotecnicoinformaticomadrid.com.es/
+WhatsApp: +34 649 97 01 28
+Teléfono: +34 914 46 85 03
 
-Dominio:
-https://informaticomadrid.com.es/
-(CONFIRMADO por el cliente como el dominio real de InnovaTech.
-Corregido en canonical, og:url, JSON-LD, robots.txt y sitemap.xml —
-antes apuntaban a serviciotecnicoinformaticomadrid.es.)
+Enfoque: mantenimiento informático, desarrollo de software y automatización para empresas en España.
+Redacción: problema de negocio -> coste en tiempo -> solución -> confianza -> CTA.
 
-AVISO (actualizado): el cliente confirma que "informaticoschamberi.com.es"
-NO es el dominio de este sitio ni de ToshibaWEB2. Sigue sin aclararse a
-qué corresponde ese dominio o si ToshibaWEB2 tiene un dominio propio
-distinto — revisar ese repositorio por separado cuando se procese.
+Incluye Google Business, YouTube, Cal.com, formulario SMTP y chatbot n8n con fix consolidado.
+Variables Vercel: SMTP_HOST, SMTP_PORT=465, SMTP_SECURE=true, SMTP_USER, SMTP_PASS, CONTACT_EMAIL.
+El correo no aparece visible en la web.
+No se añadió Google Analytics porque no se proporcionó un ID.
 
-REVISIÓN (fixes aplicados):
-- Menú móvil: no existía botón de menú en móvil (.links se ocultaba a
-  partir de 900px sin alternativa). Añadido botón .menu-btn + desplegable
-  #mobileMenu con todos los enlaces (Inicio, los 8 servicios, Solicitar
-  cita, Ubicación, Contacto), aplicado en las 11 páginas del sitio.
-- Borde blanco añadido al botón del chatbot (border:1px solid #fff!important).
-  Esta web no tenía ningún CSS que reposicionara el chat (a diferencia de
-  otras marcas), así que no había colisión [class*="chat-window"] que
-  corregir; solo se ha añadido el borde.
-- Sección de contenido SEO: NO se ha añadido una nueva, porque el sitio
-  ya incluye 8 páginas dedicadas por servicio (/servicios/*.html) con
-  contenido propio y específico — más completo que la sección única de
-  la plantilla one-page.
-- Datos schema.org: no existían en ninguna página. Añadido LocalBusiness
-  en index.html (nombre, teléfono, área de servicio Madrid sin dirección
-  inventada, enlaces de Maps/YouTube). Pendiente: replicarlo en el resto
-  de páginas si se solicita.
-- Meta canonical y etiquetas og:* : no existían en NINGUNA página.
-  Añadidas solo en index.html por ahora (canonical, og:title,
-  og:description, og:type, og:url, robots). Pendiente aplicarlas también
-  en contacto.html, política de privacidad y las 8 páginas de servicio.
-- H1 de portada ajustado a 3 líneas ("Mantenimiento" / "Informático para
-  Empresas" / "Madrid") mediante un salto de línea explícito.
-- Alineación de los textos de la cuadrícula de servicios (service-box):
-  se heredaba text-align:center de .hero y quedaban centrados; corregido
-  a la izquierda.
-
-FORMULARIO DE CITA — CAMBIO IMPORTANTE:
-El formulario (api/contact.js) usaba la API de Gmail vía OAuth2
-(paquete "googleapis", variables GOOGLE_CLIENT_ID/GOOGLE_CLIENT_SECRET/
-GOOGLE_REFRESH_TOKEN/GOOGLE_EMAIL), distinto al resto de webs de la
-familia. Sustituido por el mismo patrón SMTP + nodemailer que usan todas
-las demás (api/contacto.js de otras marcas), manteniendo el mismo
-endpoint /api/contact y los mismos campos del formulario.
-
-Variables SMTP a configurar en Vercel (sustituyen a las de Google):
-SMTP_HOST=cp7124.webempresa.eu
-SMTP_PORT=465
-SMTP_SECURE=true
-SMTP_USER=soporte@kelatos.com
-SMTP_PASS=[configurada únicamente en Vercel]
-CONTACT_EMAIL=soporte@kelatos.com
-
-Las variables antiguas (GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET,
-GOOGLE_REFRESH_TOKEN, GOOGLE_EMAIL) ya no se usan y pueden eliminarse de
-Vercel. package.json actualizado: se quitó la dependencia "googleapis" y
-se añadió "nodemailer"; node engine ajustado a 22.x para igualar al
-resto de la familia.
-
-Google Analytics:
-G-CFBRECXDXX — no existía. Añadido en las 11 páginas HTML del sitio
-(index, contacto, política de privacidad y las 8 páginas de
-/servicios/).
-
-REVISIÓN ADICIONAL (esta pasada):
-- Sitio confirmado como legítimamente multipágina (sin eliminaciones
-  de /servicios/ en el historial): NO se ha añadido middleware.mjs, no
-  aplica.
-- Sin .navcall: este sitio no muestra un botón de teléfono en el menú
-  (no tenía antes, no se ha añadido); no aplica el fix de la píldora.
-- H1 de portada reescrito, corto, directo y totalmente afirmativo
-  (sin interrogación ni condicionales, mismo esquema visual con <em>
-  que ya usaba la plantilla): "Un ordenador roto detiene tu empresa.
-  Aquí sí respondemos." (el H1 anterior, de un rediseño posterior a
-  este README, tenía 16 palabras). Tamaño del H1 aumentado:
-  clamp(38-60px) → clamp(46-74px) en escritorio, 41px → 48px en móvil.
-- Dominio corregido a informaticomadrid.com.es (ver arriba).
-- Dominio real de ToshibaWEB2 ya confirmado por separado (hpexpert.es);
-  no tiene relación con este repositorio.
-
-REVISIÓN ADICIONAL (esta pasada — completa la tarea pendiente):
-- Canonical/og:*/robots y schema.org replicados en las 10 páginas que
-  no los tenían (contacto.html, politica-privacidad.html y las 8
-  páginas de /servicios/) — antes solo existían en index.html.
-  - contacto.html y politica-privacidad.html: mismo LocalBusiness que
-    index.html, con su propia URL canonical.
-  - Cada página de /servicios/: schema.org tipo Service con el
-    provider (InnovaTech) y su propia URL canonical.
-  - BUG propio, detectado y corregido en la misma pasada: el script de
-    inserción generó inicialmente las URLs de canonical/og:url con
-    backslash en vez de barra normal en las 8 páginas de servicios
-    (".../servicios\nombre.html" en vez de ".../servicios/nombre",
-    fallo de compatibilidad de rutas de Windows/Python); corregido
-    antes de hacer commit.
-  - Las URLs de canonical/og:url se generaron sin extensión .html
-    (ej. ".../contacto" en vez de ".../contacto.html") para coincidir
-    con vercel.json (cleanUrls:true) y con las URLs ya usadas en
-    sitemap.xml.
-- H1, GA, cookies, schema de index.html, menú móvil y borde del chat
-  ya estaban correctos; no se ha tocado nada de eso.
-
-REVISIÓN ADICIONAL (a petición del cliente):
-- Quitado el párrafo bajo el h2 del hero ("Revisamos tus equipos antes
-  de que fallen..."), en todas las versiones (no había reglas
-  específicas de móvil/escritorio que lo afectaran aparte, así que un
-  solo cambio cubre ambas). Se mantiene el h2 ("Nosotros nos
-  encargamos de que eso no vuelva a pasar").
-- El cliente también señaló que en escritorio "el texto se ve mal,
-  parece que está en 1 columna, debería estar en 3 columnas": el
-  service-grid del hero y el grid de tarjetas de la sección Servicios
-  ya usan grid-template-columns:repeat(4,1fr) en escritorio (no 1
-  columna), así que se interpreta que la observación se refería al
-  párrafo eliminado arriba (un bloque de texto corrido que ocupaba
-  todo el ancho). Si tras el despliegue se sigue viendo algo en 1
-  columna en escritorio, indicar la sección exacta para revisarlo.
-
-REVISIÓN ADICIONAL (a petición del cliente):
-- BUG REAL — no existía ningún botón de llamada en todo el sitio,
-  solo WhatsApp. Añadido el teléfono compartido de la familia,
-  +34 914 46 85 03: botón "Atención Telefónica..." junto al de
-  WhatsApp en el hero de index.html, y botón "Llamar | +34 914 46 85
-  03" junto al de WhatsApp en la sección "Atención a empresas" de
-  contacto.html.
-- BUG REAL — schema.org usaba el número de WhatsApp
-  (+34649970128) en el campo "telephone" de las 11 páginas del sitio
-  (index, contacto, política de privacidad y las 8 de /servicios/),
-  en vez de un teléfono real. Corregido a +34 914 46 85 03 en las 11
-  páginas mediante un script, verificado antes/después con grep.
-- BUG REAL — el formulario (presente de forma idéntica en index.html
-  Y en contacto.html) tenía la misma casilla de política de
-  privacidad sin ningún enlace en ambas páginas. Añadido el enlace
-  estándar de la familia a https://kelatos.com/privacy-policy/,
-  resaltado en azul, en las dos.
-- Añadido "Sábados, domingos y días festivos estamos cerrados" debajo
-  del horario de atención, en index.html y contacto.html (el mismo
-  bloque de horario aparece duplicado en ambas páginas).
-- No se ha añadido franja de aviso de servicio técnico independiente:
-  no aplica a este negocio (mantenimiento informático para empresas,
-  sin el enfoque de reparación de equipos de la familia de marcas de
-  electrodomésticos/informática de consumo).
-
-REVISIÓN ADICIONAL (checklist unificado de la familia, 11 páginas — a petición del cliente, repo 38/48):
-- BUG REAL — enlace de Cal.com desactualizado (solo existe en
-  index.html). Actualizado a
-  https://cal.com/kelatos/30min?embed=true&theme=dark&attendeePhoneNumber=%2B34&overlayCalendar=true
-  (se mantiene theme=dark, deliberado en este repo, a diferencia del
-  theme=light estándar de la familia).
+REVISIÓN ADICIONAL (checklist unificado de la familia, a petición del cliente):
+- BUG REAL — enlace de Cal.com desactualizado. Actualizado a
+  https://cal.com/kelatos/30min?embed=true&theme=light&attendeePhoneNumber=%2B34&overlayCalendar=true.
 - Verificado: el correo soporte@kelatos.com no aparece visible.
-- BUG REAL — el mensaje prellenado de WhatsApp decía "¡Hola Kelatos!"
-  en las 11 páginas (botón del hero y flotante). Corregido a "¡Hola
-  InnovaTech!" en las 21 apariciones encontradas.
-- BUG REAL — el menú móvil (#mobileMenu, estilo atributo hidden) no
-  tenía ningún listener que lo cerrara al pulsar un enlace, en
-  ninguna de las 11 páginas. Añadido el script estándar de la familia
-  a todas.
+- No se ha tocado el texto de WhatsApp ("¡Hola Kelatos", sin marca):
+  esta es una plantilla deliberadamente sin marcar (ver nota de
+  arriba, "Nombre de empresa" es texto editable), así que no
+  corresponde inventar un nombre de marca aquí. Aplicar el nombre
+  real de marca cuando esta plantilla se reutilice para un cliente
+  concreto.
+- BUG REAL — no existía ningún botón de menú en móvil/tablet
+  (.links{display:none} a partir de 920px, sin alternativa), así que
+  la navegación desaparecía por completo por debajo de ese ancho.
+  Añadido botón .menu-btn + desplegable #mobileMenu con los mismos
+  enlaces, y su script de cierre al pulsar un enlace.
 - Verificado: sin iconos ni imágenes con proporciones fijas
   incorrectas.
-- Verificado: el H1 en móvil ya está en 48px (regla ".hero h1").
-- BUG REAL — botones del hero (.wa-main/.phone-main) ya tenían
-  border-radius:99px pero sin ningún estado hover. Añadido
-  filter:brightness(.88) en ambos (colores sólidos) al pasar el
-  ratón.
+- BUG REAL — el H1 en móvil estaba en 40px. Corregido a 48px.
+- BUG REAL — botones del hero (.cta) con border-radius de 15px y sin
+  estado hover. Aumentado a border-radius:999px; añadido
+  filter:brightness(.88) en wa/phone (ambos de color sólido, verde y
+  blanco respectivamente) y relleno blanco + texto oscuro en el botón
+  "Agenda una reunión" (.meet, estilo contorno fantasma sobre el
+  hero oscuro) al pasar el ratón.
+- No aplica la franja de aviso de servicio técnico independiente:
+  agencia de servicios IT/mantenimiento para empresas, mismo criterio
+  que InformaticoChamberi (sin enfoque de reparación de equipos de
+  marca concreta).
 - Verificado: este repo no usa el patrón de franja de insignias bajo
   el H1 (familia Dyson); no aplica la reubicación.
 
-CONVERSIÓN A ONE-PAGE (a petición del cliente):
-Este repositorio era multipágina: servicios/*.html (8 páginas),
-contacto.html y politica-privacidad.html (11 páginas en total).
-Convertido a una sola página (index.html), siguiendo el mismo patrón
-ya usado en el resto de la familia (DellTech, XiaomiTech,
-TaurusMyCook, etc.):
-- Eliminadas las 10 páginas: servicios/ (8 archivos), contacto.html,
-  politica-privacidad.html. No se ha migrado ni resumido su contenido
-  dentro de index.html — el home ya tenía sus propias secciones
-  genéricas (hero con 8 tarjetas de servicio, sección "Servicios
-  informáticos para empresas" con las 8 tarjetas completas y
-  descripción, formulario de contacto, Cal.com, ubicación), así que
-  no se ha perdido la presencia de cada servicio, solo la página
-  individual dedicada a cada uno.
-- Menú (escritorio y móvil): el desplegable "Servicios" con 8 enlaces
-  a páginas individuales se sustituyó por un único enlace "Servicios"
-  → /#servicios (la sección que ya lista los 8 servicios). El enlace
-  "Contacto" (antes /contacto.html) ahora apunta a /#contacto-form
-  (el formulario ya presente en el home).
-- Las 8 tarjetas del hero y los 8 enlaces "Ver servicio →" de la
-  sección "Servicios" (antes apuntaban a /servicios/*.html) ahora
-  apuntan a /#servicios, ya que no existe una página individual a la
-  que llevar.
-- politica-privacidad.html era una página huérfana: no estaba
-  enlazada desde ningún sitio de index.html (el checkbox de política
-  de privacidad del formulario ya usaba correctamente el enlace
-  externo estándar de la familia, https://kelatos.com/privacy-policy/).
-  Solo aparecía en el sitemap.xml. Eliminada junto con el resto.
-- Añadido middleware.mjs (mismo patrón exacto que DellTech/XiaomiTech/
-  etc.): cualquier URL que no sea "/" redirige (301) a la home, para
-  que los enlaces indexados o backlinks a las páginas antiguas no den
-  404. Excluye /api/* y cualquier ruta con extensión de archivo.
-  Añadida la dependencia "@vercel/functions": "^2.0.3" en package.json.
-- sitemap.xml reducido a un único <url>: https://informaticomadrid.com.es/.
-  robots.txt sin cambios (ya solo referenciaba el sitemap por nombre
-  de archivo, no listaba URLs).
-- Las reglas CSS .drop/.menu (dropdown del menú de escritorio) se
-  dejan intactas en styles.css, sin uso, según práctica habitual de
-  la familia al eliminar HTML que las usaba.
+⚠️ AVISO — COLISIÓN DE DOMINIO (no resuelta, no tocada):
+El dominio indicado arriba (serviciotecnicoinformaticomadrid.com.es)
+es, confirmado por el cliente, el dominio real de otro repositorio de
+la familia (InformaticoChamberi). Si esta plantilla llega a
+desplegarse en vivo para un cliente real, hay que asignarle su propio
+dominio distinto antes de publicarla, y actualizar canonical/og:url/
+sitemap.xml/robots.txt en consecuencia.
 
-CORRECCIÓN DE DOMINIO (confirmado por el cliente en vivo):
-- BUG REAL — el dominio real es serviciotecnicoinformaticomadrid.com.es
-  (confirmado por el cliente y verificado en vivo: esa URL carga
-  correctamente la home de InnovaTech). El dominio que se había usado
-  hasta ahora, informaticomadrid.com.es, resultó ser un sitio ajeno,
-  sin relación con este negocio ("Informático Madrid | Montaje
-  Hardware Gaming PC").
-- Corregido a serviciotecnicoinformaticomadrid.com.es en canonical,
-  og:url, JSON-LD (campo "url"), sitemap.xml y robots.txt. El
-  middleware.mjs no necesitaba cambios: usa el origin de la propia
-  petición, no un dominio fijo.
+CORRECCIÓN DE DOMINIO (confirmado por el cliente):
+- BUG REAL — el dominio real es mantenimientoinformaticopymetetuan.es
+  (confirmado por el cliente). El anterior, serviciotecnicoinformaticomadrid.com.es,
+  resultó pertenecer en realidad a InformaticoChamberi, otro repositorio de
+  la familia. Corregido en canonical, JSON-LD (campo "url"), sitemap.xml y
+  robots.txt.
+- Verificado en vivo: mantenimientoinformaticopymetetuan.es actualmente
+  sirve un sitio WordPress ajeno a este despliegue de Vercel (cabeceras
+  PHP/wp-json/wp-content), con el título "PymeTech | Mantenimiento
+  Informático Tetuán" — probablemente el sitio antiguo que hay que
+  sustituir en el panel de dominios por este despliegue; eso no se puede
+  hacer desde el código. De paso revela el nombre de marca real
+  ("PymeTech") por si se decide dejar de usar esta copia como plantilla
+  genérica y personalizarla para ese negocio concreto — pendiente de
+  confirmación del cliente antes de tocar el texto "Nombre de empresa" y
+  el mensaje de WhatsApp.
+
+PERSONALIZACIÓN CON LA MARCA REAL (a petición del cliente — deja de ser plantilla genérica):
+- "Nombre de empresa" → "PymeTech" en cabecera, pie de página y
+  JSON-LD (campo "name").
+- Mensaje de WhatsApp: "¡Hola Kelatos" → "¡Hola PymeTech" en el CTA
+  del hero y en el botón flotante.
+- Title y meta description reescritos incluyendo la marca: "PymeTech
+  | Mantenimiento Informático y Software para Empresas en Madrid".
+- Añadidos meta robots y etiquetas og:title/og:description/og:url/
+  og:type (no existía ninguna); usan el título/descripción nuevos y
+  el dominio ya corregido.
+- No se ha añadido Google Analytics: sigue sin proporcionarse un ID
+  propio para PymeTech.
+
+AJUSTES DE HERO (a petición del cliente, con captura de pantalla):
+- H1 reducido de 20 palabras a 7: "Menos problemas técnicos. Más
+  tiempo para tu empresa."
+- Quitado el párrafo largo bajo el H1 (.hero-copy, "Equipos que no
+  responden, procesos manuales...") y la fila de píldoras (.points,
+  "Mantenimiento informático · Desarrollo de software ·
+  Automatizaciones · Soporte empresas") — ambos marcados para
+  eliminar en la captura.
+- Botones del hero (.ctas): cambiados de dos columnas a una sola
+  columna (uno debajo del otro), y añadido un icono a cada uno:
+  WhatsApp (bocadillo estándar de la familia), teléfono y un icono de
+  calendario para "Agenda una reunión".
+- Icono de WhatsApp flotante mejorado: sustituido el texto "WA" por
+  el mismo icono SVG de bocadillo usado en el resto de la familia.
+
+AJUSTES DE LA CAJA DE INFORMACIÓN Y H1 (a petición del cliente, con captura de pantalla):
+- Quitadas de la caja de información: la fila "Dirección" (C.
+  Joaquín María López, 26 — dirección compartida de la familia, no
+  específica de este negocio), la fila "Ámbito" y el bloque
+  "Referencia" (Metro/Aparcamiento) — las tres marcadas para eliminar
+  en la captura.
+- Añadida en su lugar una fila "Zona": Tetuán, Madrid (según el
+  propio dominio/nombre del repositorio, mantenimientoinformaticopymetetuan.es).
+- JSON-LD actualizado en consecuencia: quitado el streetAddress/
+  postalCode de la dirección compartida; areaServed cambiado de "ES"
+  a "Tetuán, Madrid".
+- H1 aumentado un 40%: clamp(40-58px) → clamp(56-81px) en escritorio.
+  El tamaño en móvil se mantiene en 48px, el estándar unificado de
+  toda la familia (no se ha tocado, para no romper esa consistencia).
+
+BANNER DE COOKIES Y ENLACE DE PRIVACIDAD (a petición del cliente):
+- BUG REAL — no existía ningún banner de cookies en todo el
+  repositorio. Añadido el estándar de la familia (Aceptar / Rechazar
+  / Política de privacidad → https://kelatos.com/privacy-policy/),
+  con recuerdo en localStorage y diseño apilado a ancho completo en
+  móvil.
+- BUG REAL — la casilla "Acepto la política de privacidad." del
+  formulario de contacto era texto plano, sin ningún enlace. Añadido
+  el enlace estándar de la familia a
+  https://kelatos.com/privacy-policy/, resaltado en azul y subrayado
+  (clase .privacy-link).
+
+REVISIÓN COMPLETA DE INDICACIONES PENDIENTES (a petición del cliente):
+Repaso contra el checklist unificado completo de la familia. Ya
+estaban correctos: Cal.com con parámetros nuevos, correo de soporte
+no visible, WhatsApp con marca (PymeTech), cierre del menú móvil,
+header fijo al hacer scroll, sin etiqueta rotada tipo hero-chip, sin
+patrón de franja de insignias (familia Dyson), banner de cookies y
+enlace de privacidad (ya corregidos en la pasada anterior), sitemap.xml
+y robots.txt correctos. Se encontraron y corrigieron dos pendientes:
+- BUG REAL — la fila "Horario" no incluía "Sábados, domingos y días
+  festivos estamos cerrados" (regla estándar de toda la familia).
+  Añadido.
+- BUG REAL — el texto decorativo gigante ".art:before" ("MENOS HORAS
+  PERDIDAS", 64px) no tenía ninguna reducción de tamaño en
+  tablet/móvil, mismo patrón ya corregido en decenas de repos de la
+  familia. Añadida reducción (40px en ≤920px, 28px en ≤600px).
+- Sin Google Analytics: sigue sin proporcionarse un ID propio para
+  PymeTech (no aplica, no es un bug).
+
+REVISIÓN DE DISEÑO (a petición del cliente, "algo más profesional"):
+- Tipografía: añadida "Sora" (Google Fonts) para titulares (h1, h2,
+  h3, marca, botón de envío) manteniendo Inter para el cuerpo de
+  texto — antes todo usaba Inter, sin jerarquía tipográfica distinta
+  entre titular y párrafo.
+- Eyebrow del hero: sustituido el texto plano por una píldora con
+  punto de acento, patrón habitual en landing pages profesionales.
+- Tarjetas (.problem, .service, .plan): añadido efecto hover sutil
+  (elevación + sombra) para que se perciban interactivas.
+- Servicios: añadido un icono propio a cada una de las 6 tarjetas
+  (llave inglesa, código, rayo, escudo, nube, tendencia), en vez de
+  solo una etiqueta de texto — ayuda a diferenciar cada área de un
+  vistazo.
+- Bloque decorativo "Automatizar no es poner IA por poner IA": el
+  texto gigante con contorno ("MENOS HORAS PERDIDAS") se ha
+  sustituido por una tarjeta flotante con icono y mensaje concreto
+  ("Menos tareas manuales"), un tratamiento más contenido y propio de
+  diseño profesional que el texto de fondo tipo plantilla.
+- Confianza (Google/YouTube): añadido un icono a cada tarjeta y
+  degradado sutil en el fondo en vez de color plano.
+- Plan "Empresa": marcado como destacado (borde de color + etiqueta
+  "Más elegido"), patrón estándar en tablas de precios para guiar la
+  elección.
+- Pasos del proceso: números de tarjeta llevados a la tipografía de
+  titular, para que combinen con el resto de la jerarquía.
+- Formulario: estados de foco visibles en campos e inputs (accesible
+  por teclado), sombra sutil al enfocar.
+- Accesibilidad: añadido contorno de foco visible (:focus-visible) en
+  enlaces, botones y campos; respeta prefers-reduced-motion.
+- Refinados espaciados, radios de borde y sombras para que se sientan
+  consistentes en toda la página, en vez de varían de una sección a
+  otra.
+
+IMAGEN DE FONDO DEL HERO (a petición del cliente, con imagen de referencia):
+- Añadida assets/images/pymetech-fondo-isometrico-web.webp (subida
+  por el cliente vía GitHub) como fondo decorativo del hero.
+- Escritorio (>920px): la ilustración se posiciona a la derecha del
+  hero, con background-size:contain (sin deformarla, respeta el
+  aspect-ratio real 1850x850) y un degradado en los bordes
+  (mask-image) para que se funda con el fondo oscuro en vez de
+  cortarse en seco. Tiene una animación de flotación muy sutil
+  (translateY ±12px, 7s, ease-in-out) usando solo transform (GPU,
+  sin repintar), respetando prefers-reduced-motion (ya definido
+  globalmente en el sitio). Se posiciona por debajo del texto y de la
+  caja de información (z-index) para no interferir con la legibilidad.
+- Móvil/tablet (≤920px): NO se muestra la ilustración completa (sería
+  pesada visualmente y competiría con el texto en pantallas
+  pequeñas). En su lugar, la misma imagen se usa como una textura de
+  fondo muy sutil a pantalla completa (opacity:.14, sin animación),
+  igual que pidió el cliente ("solo iría un patrón basado en la
+  imagen de fondo").
+- Rendimiento: una sola imagen de 47.7 KB, sin JavaScript añadido,
+  animación limitada a transform (compositada por GPU, no afecta al
+  layout/paint), desactivada por completo en móvil.
+
+CORRECCIÓN DEL FONDO DEL HERO (a petición del cliente, con captura de pantalla):
+- BUG REAL — la ilustración se posicionaba en absoluto relativa a
+  .hero (ancho completo del viewport), pero sus medidas eran
+  porcentajes pensados para el ancho del contenido (.wrap, 1180px
+  máx). En pantallas anchas esto desplazaba la imagen casi fuera de
+  la vista, dejando solo una esquina visible — justo lo que se veía
+  en la captura. Corregido: la ilustración ahora es hija de
+  .hero-grid (contenida en .wrap), así sus porcentajes se calculan
+  sobre el ancho del contenido, no de toda la pantalla, y queda
+  colocada de forma consistente sin importar el ancho de ventana.
+- Cambiada la animación: en vez de una flotación continua en bucle,
+  ahora es un efecto sutil solo al pasar el ratón por el hero
+  (transform + transición, sin bucle infinito), según sugerencia del
+  cliente. En móvil no aplica (no hay hover).
+
+CORRECCIÓN DEL FONDO DEL HERO (2ª vuelta, a petición del cliente — "se ve
+mal encajada, no coloques ningún efecto, solo colócala en el fondo"):
+- BUG REAL — con .hero-art en position:absolute;z-index:1 y .info sin
+  ninguna posición/z-index propios, en varios anchos de ventana la
+  ilustración se veía superpuesta sobre la mitad inferior de la tarjeta
+  blanca de contacto (.info), lavando el texto de "HORARIO", "TELÉFONO
+  DE INFORMACIÓN", etc.
+- Simplificado por completo, tal como pidió el cliente: eliminado el
+  efecto al pasar el ratón (.hero:hover .hero-art, en escritorio y
+  móvil) y la transición transform .5s asociada. La imagen ya no se
+  intenta encajar/alinear junto al contenido: ahora es una sola capa de
+  fondo a pantalla completa del hero (inset:0, background-size:cover,
+  opacity:.16), igual en escritorio y móvil, así que se ha eliminado
+  también la regla duplicada que existía solo para móvil.
+- Añadido position:relative;z-index:1 explícito a .info, como refuerzo,
+  para que la tarjeta blanca siempre pinte por encima del fondo sin
+  ambigüedad de apilamiento (antes .info no tenía position propio).
+
+CORRECCIÓN DEL FONDO DEL HERO (3ª vuelta, a petición del cliente — la
+versión de fondo a pantalla completa quedó demasiado tenue y ya no se
+parecía a la imagen de referencia):
+- Revertido el fondo a pantalla completa con opacidad .16 (quedaba
+  prácticamente invisible en escritorio). Restaurada una ilustración
+  visible y bien proporcionada (opacity:.95, background-size:contain,
+  aspect-ratio real 1850/850), posicionada dentro de .hero-grid (no de
+  .hero), en el hueco entre el texto y la tarjeta de contacto — igual
+  que en la imagen de referencia del cliente.
+- Sigue sin ningún efecto ni animación (sin hover, sin transition),
+  conforme a la última indicación.
+- El posible solape con la tarjeta .info ya no causa el problema
+  anterior ("mal encajada", texto lavado): .info tiene ahora
+  position:relative;z-index:1 explícito (corrección de la vuelta
+  anterior) y .hero-art se quedó en z-index:0, así que la tarjeta
+  blanca siempre pinta limpia y opaca por encima, aunque la ilustración
+  se extienda por debajo.
+- Añadido un degradado de máscara solo en el borde izquierdo
+  (mask-image, transparente → opaco en el 26%) para que no corte en
+  seco sobre el texto del H1.
+- Restaurada la regla específica de móvil (@media max-width:920px):
+  vuelve a ser el patrón de fondo a pantalla completa y baja opacidad
+  (.14) que el cliente pidió desde el principio para esa versión,
+  distinto de la ilustración recortada de escritorio.
+
+ENLACE DE GOOGLE MAPS (a petición del cliente):
+- Actualizado en las 4 ubicaciones donde aparecía (tarjeta de contacto
+  del hero, tarjeta "Google Business" de la sección de confianza,
+  enlace de la sección de contacto y footer): de
+  https://maps.app.goo.gl/mkCqbuex13odNwc17 a
+  https://maps.app.goo.gl/RXatcmbYFv9Z8xdPA.
+
+FONDO DEL HERO — RETIRADA LA IMAGEN, SUSTITUIDA POR UN PATRÓN (a
+petición del cliente: "ya no coloques la imagen de fondo no se ve bien.
+usa patrones u otros elementos con colores relacionados sin saturar"):
+- Eliminado por completo el div .hero-art y su imagen de fondo
+  (pymetech-fondo-isometrico-web.webp, borrada del repositorio junto
+  con su README de assets/images, ya que no queda ninguna referencia).
+- En su lugar, un patrón puramente CSS (.hero:after): anillos
+  concéntricos + resplandor radial suave, en los mismos tonos de marca
+  (azul/cian) ya usados en el resto del hero, con máscara para
+  desvanecerse en los bordes y opacidad baja para no saturar. Se
+  combina con la retícula de puntos (.hero:before) que ya existía.
+  Ajustado también en móvil para quedar proporcionado y discreto.
+
+MEJORAS SEGÚN LAS IMÁGENES DE REFERENCIA ENVIADAS POR EL CLIENTE:
+- Botón "Agenda una reunión...": añadida una flecha (chevron) al final,
+  con el texto y el icono de calendario a la izquierda y la flecha
+  empujada al extremo derecho del botón (justify-content:space-between),
+  igual que en la referencia.
+- Tarjeta de información de contacto (.info): cada fila (Zona, Horario,
+  Teléfono de información, Servicios) recibe ahora un icono propio
+  (ubicación, reloj, teléfono, engranaje) en un círculo azul claro,
+  igual que en la imagen de referencia.
+- El enlace "Ver ubicación y reseñas" dentro de esa tarjeta pasa de ser
+  un simple enlace de texto a un botón sólido de ancho completo
+  (degradado azul/índigo de marca) con icono de flecha, igual que en la
+  referencia. El resto de enlaces "Ver ubicación..." del sitio (sección
+  de contacto y footer) siguen siendo enlaces de texto simples, sin
+  cambios, ya que la referencia solo mostraba la tarjeta del hero.
+
+AJUSTES ADICIONALES (a petición del cliente):
+- H1 en escritorio: tope máximo del clamp() reducido de 74px a 70px,
+  según lo solicitado.
+- Botón "Agenda una reunión y cuéntanos qué está frenando a tu
+  empresa" (.meet): el texto en dos líneas quedaba muy pegado a los
+  bordes del botón. Aumentado el padding vertical (18px), añadido
+  line-height:1.4 y cambiado a texto alineado a la izquierda (en vez
+  de centrado por línea) para que las dos líneas se vean equilibradas
+  junto al icono de calendario y la flecha final.
+- Fondo del hero, segunda vuelta (a petición del cliente: "coloca
+  formas, líneas, otro diseño de fondo"): sustituido el patrón de
+  anillos concéntricos anterior por uno nuevo compuesto de líneas
+  diagonales finas (.hero-deco, repeating-linear-gradient) más tres
+  formas geométricas con solo borde (círculo, cuadrado rotado y anillo
+  grande), todo en los mismos tonos de marca (blanco muy translúcido,
+  azul y cian) y con máscara para desvanecerse hacia el texto,
+  manteniendo la instrucción de no saturar. Ajustado también el tamaño
+  y posición de las formas en móvil.
+
+BORDE INFERIOR DEL HERO (a petición del cliente: "la parte de abajo del
+hero está recto, redondea o crea otra forma de terminar"):
+- Añadido un divisor curvo (.hero-edge, SVG de onda a ancho completo)
+  al final de la sección hero, en vez del corte recto anterior. El
+  relleno del SVG usa el mismo color de fondo (#f6f8fb) que la sección
+  siguiente ("problemas"), así que visualmente crea una transición
+  curva de la zona oscura del hero a la zona clara, sin afectar el
+  layout del contenido (absolute, no ocupa espacio en el flujo). Altura
+  reducida en móvil (≤600px) para mantener la proporción.
+
+AJUSTE DE LA CURVA DEL HERO (a petición del cliente, con boceto sobre
+captura): la onda con varios picos quedaba demasiado pronunciada.
+Sustituida por una sola curva suave (una única Q de bezier, sin
+ondulaciones), mucho más plana y sutil, tal como se veía en el trazo
+de referencia del cliente.
+
+BORDE DEL HERO: VUELTA A RECTO, SOLO ESQUINAS REDONDEADAS (a petición
+del cliente: "manténlo recto, solo redondea los bordes"):
+- Eliminado el divisor SVG de curva/onda por completo.
+- Añadido border-radius:0 0 36px 36px directamente a .hero: el borde
+  inferior vuelve a ser una línea recta en toda su longitud, solo con
+  las dos esquinas inferiores redondeadas.
+
+COLOR EN EL FONDO DEL HERO (a petición del cliente: los detalles de
+fondo colocados antes casi no se apreciaban; pidió color sin que
+choque con el H1):
+- Aumentada notablemente la opacidad de las líneas diagonales y de los
+  tres contornos (círculo/cuadrado/anillo), y añadidos dos resplandores
+  de color (cian y azul-índigo, los mismos tonos de marca que el acento
+  del H1) detrás de las líneas.
+- Para garantizar que nunca se acerque al texto del H1 en ningún ancho
+  de pantalla, .hero-deco se reestructuró como una caja propia anclada
+  al borde derecho (width:46%, max-width:540px) en vez de una máscara
+  sobre todo el ancho del hero — así su borde izquierdo (con
+  degradado de desvanecido) siempre queda contenido dentro del hueco
+  entre el texto y la tarjeta de contacto, sin importar el ancho de
+  viewport.
+
+────────────────────────────────────────────────────────────
+ADAPTACIÓN A RETIROTECH | MANTENIMIENTO INFORMÁTICO EN RETIRO
+(repositorio clonado a partir de una copia anterior de la plantilla
+PymeTech; se readapta con todos los criterios vigentes de la
+subfamilia mantenimientoinformaticopyme*)
+────────────────────────────────────────────────────────────
+
+MARCA Y TEXTOS:
+- "PymeTech" → "RetiroTech" en cabecera, pie de página, JSON-LD (name)
+  y mensaje prellenado de WhatsApp ("¡Hola RetiroTech").
+- Title: "RetiroTech | Mantenimiento Informático en Retiro" (texto
+  exacto indicado por el cliente para SEO). Meta description, og:title
+  y og:description reescritos mencionando Retiro, Madrid.
+- H1 propio de 9 palabras exactas (criterio de Isra Bravo, distinto de
+  los H1 de los repos hermanos): "Resolvemos las incidencias técnicas
+  de tu empresa sin demoras."
+- Fila "Zona": "Tetuán, Madrid" → "Retiro, Madrid".
+- FAQ "¿Trabajáis solo en Madrid?" → "¿Trabajáis solo en Retiro?", con
+  la respuesta ampliada a "Retiro y el resto de Madrid".
+- Tarjeta de información de contacto: el h2 (antes "Servicios IT para
+  empresas") ahora muestra el título exacto de la web / nombre de
+  Google Business: "RetiroTech | Mantenimiento Informático en Retiro".
+- Sección de reserva de cita (#cita): kicker "Si quieres verlo con
+  calma" → "Asesoramiento gratuito".
+- Menú (escritorio y móvil): "Reunión" → "Agendar cita".
+- JSON-LD: description y areaServed actualizados a Retiro, Madrid.
+- H1: tamaño estándar de la subfamilia, clamp(44px,5.6vw,62px)
+  (aplicado directamente, sin necesidad de reducir desde 70px porque
+  esta copia partía de una plantilla más antigua).
+- .info h2: añadido line-height:1.25 para el título más largo.
+
+DOMINIO Y ENLACES:
+- canonical, og:url y JSON-LD "url" → https://mantenimientoinformaticopymeretiro.es/
+  (dominio indicado directamente por el cliente).
+- sitemap.xml y robots.txt actualizados al nuevo dominio.
+- Enlace de Google Maps actualizado en las 4 ubicaciones del sitio a
+  https://maps.app.goo.gl/DqEAa7oxZyPZ9dxx7, proporcionado por el
+  cliente.
+
+TELÉFONO Y WHATSAPP: sin cambios (+34 649 97 01 28 / +34 914 46 85 03)
+— confirmado por el cliente que es el mismo número para toda la
+familia.
+
+COLOR (a petición del cliente: "modifica el color, pero que sea
+tecnológico, no colores llamativos ni disruptivos"):
+- Nueva paleta muted índigo/violeta-pizarra, distinta tanto del
+  azul/cian original (PymeTech/PymeCare) como del teal de TecPyme, para
+  diferenciar visualmente esta marca: --blue:#0b5bd3→#5b5fa8,
+  --indigo:#5f6fff→#3d4f73, --cyan:#32c7d9→#8f93e0. Fondo oscuro base
+  (--bg/--bg2) y grises neutros sin tocar, mismo criterio que en
+  TecPyme: solo cambia el matiz de acento, no la profundidad/
+  saturación general.
+- Todos los tonos derivados (fondos de iconos claros, textos en color
+  sobre fondo oscuro, badges, bordes de hover, sombras de botones)
+  recalculados a la misma paleta, manteniendo el mismo nivel de
+  contraste que tenían antes.
+- Isotipo (assets/isotipo.svg) recoloreado a juego con la nueva
+  paleta.
+- Sin cambios en el verde de WhatsApp, el rojo de YouTube ni la banda
+  de cookies (colores de terceros / estándar de familia).
