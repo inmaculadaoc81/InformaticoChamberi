@@ -409,3 +409,56 @@ tecnológico, no colores llamativos ni disruptivos"):
   paleta.
 - Sin cambios en el verde de WhatsApp, el rojo de YouTube ni la banda
   de cookies (colores de terceros / estándar de familia).
+
+────────────────────────────────────────────────────────────
+ADAPTACIÓN A INNOVATECH SERVICIO TÉCNICO INFORMÁTICO PYMES CHAMBERI
+(repositorio ya usaba internamente la plantilla RetiroTech desde la
+conversión a one-page anterior; se readapta con la marca real)
+────────────────────────────────────────────────────────────
+
+MARCA Y TEXTOS:
+- "RetiroTech" → "InnovaTech" en cabecera, pie de página, JSON-LD
+  (name) y mensaje prellenado de WhatsApp ("¡Hola InnovaTech").
+- Title: "InnovaTech Servicio Técnico Informático Pymes Chamberi"
+  (texto exacto indicado por el cliente, sin "|"). Meta description,
+  og:title y og:description reescritos mencionando Chamberí, Madrid.
+- H1 propio de 9 palabras exactas, distinto de los de los repos
+  hermanos: "Atendemos tu pyme con rapidez y sin tecnicismos
+  complicados."
+- Fila "Zona": "Retiro, Madrid" → "Chamberí, Madrid".
+- FAQ "¿Trabajáis solo en Retiro?" → "¿Trabajáis solo en Chamberí?",
+  con la respuesta a "Chamberí y el resto de Madrid" (distrito de la
+  capital, no municipio propio, igual que Retiro/Barajas/Hortaleza).
+- Tarjeta de información de contacto: el h2 actualizado al título
+  exacto de esta web: "InnovaTech Servicio Técnico Informático Pymes
+  Chamberi" (se corrigió aparte, ya que el rebranding automático solo
+  cambiaba el nombre de marca y dejaba "| Mantenimiento Informático en
+  Retiro" sin tocar).
+- JSON-LD: description y areaServed actualizados a Chamberí, Madrid.
+
+DOMINIO Y ENLACES:
+- canonical, og:url y JSON-LD "url" → https://serviciotecnicoinformaticomadrid.com.es/
+  (dominio real de InformaticoChamberi, confirmado por el cliente —
+  este mismo dominio ya se había identificado como suyo en una sesión
+  anterior de la familia, al corregir una colisión con la plantilla de
+  PymeTech, que lo llevaba por error).
+- sitemap.xml y robots.txt actualizados al dominio.
+- Enlace de Google Maps actualizado en las 4 ubicaciones del sitio a
+  https://maps.app.goo.gl/mkCqbuex13odNwc17, proporcionado por el
+  cliente (coincide con el enlace de Maps original de la plantilla
+  antes de que se fueran creando enlaces propios para cada marca
+  nueva).
+
+TELÉFONO Y WHATSAPP: sin cambios, mismo número compartido por toda la
+familia.
+
+COLOR (regla permanente de la subfamilia — siempre se cambia):
+- Nueva paleta verde bosque/kelly vivo, distinta de las diecisiete
+  anteriores: --blue:#5b5fa8→#157526, --indigo:#3d4f73→#0e4d19,
+  --cyan:#8f93e0→#6fdb85. Situado entre el verde-hierba de
+  TorrelodonesTech y el verde de WhatsApp, diferenciado de ambos por
+  ser más oscuro/profundo.
+- Todos los tonos derivados (fondos de iconos claros, textos en color
+  sobre fondo oscuro, badges, bordes de hover, sombras de botones)
+  recalculados a la misma paleta, mismo contraste que antes.
+- Isotipo (assets/isotipo.svg) recoloreado a juego.
