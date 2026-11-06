@@ -192,3 +192,8 @@ footer{background:var(--bg);color:#fff;padding:36px 0}
 @media(prefers-reduced-motion:reduce){
   *{transition-duration:.01ms!important;animation-duration:.01ms!important}
 }
+
+/* Con «Blog» en el menú los enlaces no caben en una línea por debajo de 1200px: menú hamburguesa */
+.links a{white-space:nowrap}
+@media(max-width:1200px){.links{display:none}.menu-btn{display:block}}
+@media(min-width:1201px){.mobile-menu{display:none!important}}
